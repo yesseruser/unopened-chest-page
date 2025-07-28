@@ -25,9 +25,39 @@ using namespace geode::prelude;
  * struct MyRewardsPage : Modify<MyMenuLayer, MenuLayer> {};
  */
 #include <Geode/modify/SecretRewardsLayer.hpp>
+#include <Geode/modify/GJChestSprite.hpp>
 class $modify(MyRewardsPage, SecretRewardsLayer) {
-    void onChestType(CCObject* sender) {
+    void onChestType(CCObject *sender) {
         SecretRewardsLayer::onChestType(sender);
-        // geode::createQuickPopup("", "", "", "m", [](auto, bool b2){});
+        // createQuickPopup("", "", "", "m", [](auto, bool b2){});
+        CCLayer *chestPageLayer = nullptr;
+        const auto pages = getChildByType<CCLayer>(1)->getChildByType<BoomScrollLayer>(0)
+                ->getChildByType<ExtendedLayer>(0);
+        const auto page_count = pages->getChildrenCount();
+        int first_unopened_page = -1;
+        for (int i = 0; i < page_count; i++) {
+            const auto page = pages->getChildByType<CCLayer>(i)->getChildByType<CCMenu>(0);
+            for (int j = 0; j < page->getChildrenCount(); j++) {
+                const auto chest = page->getChildByType<CCMenuItemSpriteExtra>(j)->getChildByType<GJChestSprite>(0);
+                if (!isChestOpen(chest)) {
+                    first_unopened_page = i;
+                    break;
+                }
+
+                if (first_unopened_page != -1) {break;}
+            }
+        }
+
+        if (first_unopened_page != -1) {
+            for (int i; i <= first_unopened_page; i++) {
+                
+            }
+        }
+    }
+
+    bool isChestOpen(CCNode *chest) {
+        auto chestSprite = dynamic_cast<GJChestSprite *>(chest);
+        if (chestSprite == nullptr) { return true; }
+        return chestSprite->m_spriteState == ChestSpriteState::Opened;
     }
 };
