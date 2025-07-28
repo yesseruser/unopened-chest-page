@@ -1,0 +1,14 @@
+{
+	"geode": "4.7.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "yesseruser.unopened_chest_page",
+	"name": "Unopened Chest Page",
+	"version": "v1.0.0",
+	"developer": "yesseruser",
+	"description": "This mod will automatically open the first page with unopened chests when opening the Demon chest menu."
+}
