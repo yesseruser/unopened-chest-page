@@ -15,6 +15,7 @@
 		"source": "https://github.com/yesseruser/unopened-chest-page"
 	},
 	"issues": {
+		"info": "To report issues, click the issue icon on the mod's page. This will open a browser with an issue list. Click New issue. You'll need to sign in to a GitHub account or create one, then fill in the title, body and click Create.",
 		"url": "https://github.com/yesseruser/unopened-chest-page/issues"
 	},
 	"tags": [
