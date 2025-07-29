@@ -67,6 +67,8 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
                 rightButton->activate();
             }
         }
+
+        log::info("Scrolled to page index {}.", first_unopened_page);
     }
 
     bool isChestClosed(GJChestSprite *chest) {
