@@ -32,7 +32,7 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
         SecretRewardsLayer::createSecondaryLayer(p0);
         log::info("onChestType base called");
         // createQuickPopup("", "", "", "m", [](auto, bool b2){});
-        const auto scrollLayer = getChildByType<CCLayer>(1)->getChildByType<BoomScrollLayer>(0);
+        const auto scrollLayer = m_secondaryScrollLayer;
         log::info("onChestType scrollLayer obtained");
         if (scrollLayer == nullptr) {
             log::error("onChestType scrollLayer is null");
