@@ -28,17 +28,22 @@ using namespace geode::prelude;
 #include <Geode/modify/GJChestSprite.hpp>
 class $modify(MyRewardsPage, SecretRewardsLayer) {
     void onChestType(CCObject *sender) {
+        log::info("onChestType started");
         SecretRewardsLayer::onChestType(sender);
+        log::info("onChestType base called");
         // createQuickPopup("", "", "", "m", [](auto, bool b2){});
-        CCLayer *chestPageLayer = nullptr;
         const auto pages = getChildByType<CCLayer>(1)->getChildByType<BoomScrollLayer>(0)
                 ->getChildByType<ExtendedLayer>(0);
+        log::info("onChestType pages ExtendedLayer gotten");
         const auto page_count = pages->getChildrenCount();
+        log::info("onChestType page count gotten");
         int first_unopened_page = -1;
         for (int i = 0; i < page_count; i++) {
             const auto page = pages->getChildByType<CCLayer>(i)->getChildByType<CCMenu>(0);
+            log::info("onChestType page %d gotten", i);
             for (int j = 0; j < page->getChildrenCount(); j++) {
                 const auto chest = page->getChildByType<CCMenuItemSpriteExtra>(j)->getChildByType<GJChestSprite>(0);
+                log::info("onChestType page %d chest %d gotten", i, j);
                 if (!isChestOpen(chest)) {
                     first_unopened_page = i;
                     break;
@@ -47,6 +52,7 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
                 if (first_unopened_page != -1) {break;}
             }
         }
+        log::info("onChestType first unopened page gotten: %d", first_unopened_page);
 
         if (first_unopened_page != -1) {
             for (int i; i <= first_unopened_page; i++) {
