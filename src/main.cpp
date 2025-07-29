@@ -50,6 +50,7 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
                 const auto chest = page->getChildByType<CCMenuItemSpriteExtra>(j)->getChildByType<GJChestSprite>(0);
                 log::info("onChestType page %d chest %d obtained", i, j);
                 if (!isChestOpen(chest)) {
+                if (isChestClosed(chest)) {
                     first_unopened_page = i;
                     break;
                 }
@@ -57,7 +58,7 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
                 if (first_unopened_page != -1) {break;}
             }
         }
-        log::info("onChestType first unopened page obtained: %d", first_unopened_page);
+        log::info("onChestType first unopened page obtained: {}", first_unopened_page);
 
         if (first_unopened_page != -1) {
             for (int i; i <= first_unopened_page; i++) {
@@ -66,9 +67,25 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
         }
     }
 
-    bool isChestOpen(CCNode *chest) {
-        auto chestSprite = dynamic_cast<GJChestSprite *>(chest);
-        if (chestSprite == nullptr) { return true; }
-        return chestSprite->m_spriteState == ChestSpriteState::Opened;
+    bool isChestClosed(GJChestSprite *chest) {
+        if (chest == nullptr) {
+            log::info("isChestOpen chestSprite is null");
+            return false;
+        }
+        switch (chest->m_spriteState) {
+            case ChestSpriteState::Opened:
+                log::info("isChestOpen chestSprite state: Opened");
+                break;
+            case ChestSpriteState::Opening:
+                log::info("isChestOpen chestSprite state: Opening");
+                break;
+            case ChestSpriteState::Closed:
+                log::info("isChestOpen chestSprite state: Closed");
+                return true;
+            case ChestSpriteState::Locked:
+                log::info("isChestOpen chestSprite state: Locked");
+                break;
+        }
+        return false;
     }
 };
