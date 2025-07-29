@@ -62,8 +62,9 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
         log::info("onChestType first unopened page obtained: {}", first_unopened_page);
 
         if (first_unopened_page != -1) {
-            for (int i; i <= first_unopened_page; i++) {
-                
+            const auto rightButton = m_rightButton;
+            for (int i = 0; i < first_unopened_page; i++) {
+                rightButton->activate();
             }
         }
     }
