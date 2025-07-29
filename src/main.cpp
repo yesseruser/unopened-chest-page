@@ -45,12 +45,12 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
         int first_unopened_page = -1;
         for (int i = 0; i < page_count; i++) {
             const auto page = pages->getChildByType<CCLayer>(i)->getChildByType<CCMenu>(0);
-            log::info("onChestType page %d obtained", i);
+            log::info("onChestType page {} obtained", i);
             for (int j = 0; j < page->getChildrenCount(); j++) {
                 const auto chest = page->getChildByType<CCMenuItemSpriteExtra>(j)->getChildByType<GJChestSprite>(0);
-                log::info("onChestType page %d chest %d obtained", i, j);
-                if (!isChestOpen(chest)) {
+                log::info("onChestType page {} chest {} obtained", i, j);
                 if (isChestClosed(chest)) {
+                    log::info("onChestType page {} chest {} not opened", i, j);
                     first_unopened_page = i;
                     break;
                 }
