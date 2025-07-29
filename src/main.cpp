@@ -27,9 +27,9 @@ using namespace geode::prelude;
 #include <Geode/modify/SecretRewardsLayer.hpp>
 #include <Geode/modify/GJChestSprite.hpp>
 class $modify(MyRewardsPage, SecretRewardsLayer) {
-    void onChestType(CCObject *sender) {
+    void createSecondaryLayer(int p0) {
         log::info("onChestType started");
-        SecretRewardsLayer::onChestType(sender);
+        SecretRewardsLayer::createSecondaryLayer(p0);
         log::info("onChestType base called");
         // createQuickPopup("", "", "", "m", [](auto, bool b2){});
         const auto scrollLayer = getChildByType<CCLayer>(1)->getChildByType<BoomScrollLayer>(0);
