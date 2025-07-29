@@ -10,5 +10,15 @@
 	"name": "Unopened Chest Page",
 	"version": "v1.0.0",
 	"developer": "yesseruser",
-	"description": "This mod will automatically open the first page with unopened chests when opening the Demon chest menu."
+	"description": "This mod will automatically open the first page with unopened chests when opening the Demon chest menu.",
+	"links": {
+		"source": "https://github.com/yesseruser/unopened-chest-page"
+	},
+	"issues": {
+		"url": "https://github.com/yesseruser/unopened-chest-page/issues"
+	},
+	"tags": [
+		"enhancement",
+		"utility"
+	]
 }
