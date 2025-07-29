@@ -28,30 +28,30 @@ using namespace geode::prelude;
 #include <Geode/modify/GJChestSprite.hpp>
 class $modify(MyRewardsPage, SecretRewardsLayer) {
     void createSecondaryLayer(int p0) {
-        log::info("onChestType started");
+        log::debug("onChestType started");
         SecretRewardsLayer::createSecondaryLayer(p0);
-        log::info("onChestType base called");
+        log::debug("onChestType base called");
         // createQuickPopup("", "", "", "m", [](auto, bool b2){});
         const auto scrollLayer = m_secondaryScrollLayer;
-        log::info("onChestType scrollLayer obtained");
+        log::debug("onChestType scrollLayer obtained");
         if (scrollLayer == nullptr) {
             log::error("onChestType scrollLayer is null");
             return;
         }
         const auto pages = scrollLayer->getChildByType<ExtendedLayer>(0);
-        log::info("onChestType pages ExtendedLayer obtained");
+        log::debug("onChestType pages ExtendedLayer obtained");
         const auto page_count = pages->getChildrenCount();
-        log::info("onChestType page count obtained");
+        log::debug("onChestType page count obtained");
 
         int first_unopened_page = -1;
         for (int i = 0; i < page_count; i++) {
             const auto page = pages->getChildByType<CCLayer>(i)->getChildByType<CCMenu>(0);
-            log::info("onChestType page {} obtained", i);
+            log::debug("onChestType page {} obtained", i);
             for (int j = 0; j < page->getChildrenCount(); j++) {
                 const auto chest = page->getChildByType<CCMenuItemSpriteExtra>(j)->getChildByType<GJChestSprite>(0);
-                log::info("onChestType page {} chest {} obtained", i, j);
+                log::debug("onChestType page {} chest {} obtained", i, j);
                 if (isChestClosed(chest)) {
-                    log::info("onChestType page {} chest {} not opened", i, j);
+                    log::debug("onChestType page {} chest {} not opened", i, j);
                     first_unopened_page = i;
                     break;
                 }
@@ -59,7 +59,7 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
 
             if (first_unopened_page != -1) {break;}
         }
-        log::info("onChestType first unopened page obtained: {}", first_unopened_page);
+        log::debug("onChestType first unopened page obtained: {}", first_unopened_page);
 
         if (first_unopened_page != -1) {
             const auto rightButton = m_rightButton;
@@ -71,21 +71,21 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
 
     bool isChestClosed(GJChestSprite *chest) {
         if (chest == nullptr) {
-            log::info("isChestOpen chestSprite is null");
+            log::debug("isChestOpen chestSprite is null");
             return false;
         }
         switch (chest->m_spriteState) {
             case ChestSpriteState::Opened:
-                log::info("isChestOpen chestSprite state: Opened");
+                log::debug("isChestOpen chestSprite state: Opened");
                 break;
             case ChestSpriteState::Opening:
-                log::info("isChestOpen chestSprite state: Opening");
+                log::debug("isChestOpen chestSprite state: Opening");
                 break;
             case ChestSpriteState::Closed:
-                log::info("isChestOpen chestSprite state: Closed");
+                log::debug("isChestOpen chestSprite state: Closed");
                 return true;
             case ChestSpriteState::Locked:
-                log::info("isChestOpen chestSprite state: Locked");
+                log::debug("isChestOpen chestSprite state: Locked");
                 break;
         }
         return false;
