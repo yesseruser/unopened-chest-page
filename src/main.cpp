@@ -42,6 +42,7 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
         log::info("onChestType pages ExtendedLayer obtained");
         const auto page_count = pages->getChildrenCount();
         log::info("onChestType page count obtained");
+
         int first_unopened_page = -1;
         for (int i = 0; i < page_count; i++) {
             const auto page = pages->getChildByType<CCLayer>(i)->getChildByType<CCMenu>(0);
@@ -54,9 +55,9 @@ class $modify(MyRewardsPage, SecretRewardsLayer) {
                     first_unopened_page = i;
                     break;
                 }
-
-                if (first_unopened_page != -1) {break;}
             }
+
+            if (first_unopened_page != -1) {break;}
         }
         log::info("onChestType first unopened page obtained: {}", first_unopened_page);
 
