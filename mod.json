@@ -1,25 +1,22 @@
 {
-	"geode": "5.0.0-alpha.1",
-	"gd": {
-		"win": "2.2081",
-		"android": "2.2081",
-		"mac": "2.2081",
-		"ios": "2.2081"
-	},
-	"id": "yesseruser.unopened_chest_page",
-	"name": "Unopened Chest Page",
-	"version": "v1.0.1",
-	"developer": "yesseruser",
-	"description": "This mod will automatically open the first page with unopened chests when opening the Demon chest menu.",
-	"links": {
-		"source": "https://github.com/yesseruser/unopened-chest-page"
-	},
-	"issues": {
-		"info": "To report issues, click the issue icon on the mod's page. This will open a browser with an issue list. Click New issue. You'll need to sign in to a GitHub account or create one, then fill in the title, body and click Create.",
-		"url": "https://github.com/yesseruser/unopened-chest-page/issues"
-	},
-	"tags": [
-		"enhancement",
-		"utility"
-	]
+  "geode": "5.0.0-alpha.2",
+  "gd": {
+    "win": "2.2081",
+    "android": "2.2081",
+    "mac": "2.2081",
+    "ios": "2.2081"
+  },
+  "id": "yesseruser.unopened_chest_page",
+  "name": "Unopened Chest Page",
+  "version": "v1.0.1",
+  "developer": "yesseruser",
+  "description": "This mod will automatically open the first page with unopened chests when opening the Demon chest menu.",
+  "links": {
+    "source": "https://github.com/yesseruser/unopened-chest-page"
+  },
+  "issues": {
+    "info": "To report issues, click the issue icon on the mod's page. This will open a browser with an issue list. Click New issue. You'll need to sign in to a GitHub account or create one, then fill in the title, body and click Create.",
+    "url": "https://github.com/yesseruser/unopened-chest-page/issues"
+  },
+  "tags": ["enhancement", "utility"]
 }
