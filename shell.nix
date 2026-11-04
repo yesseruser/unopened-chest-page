@@ -16,8 +16,6 @@ pkgs.mkShellNoCC {
     pkgs.git
   ];
 
-  shellHook = ''
-    export CC=${llvm.clang-unwrapped}/bin/clang
-    export CXX=${llvm.clang-unwrapped}/bin/clang++
-  '';
+  CC = "${llvm.clang-unwrapped}/bin/clang";
+  CXX = "${llvm.clang-unwrapped}/bin/clang++";
 }
