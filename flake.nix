@@ -28,7 +28,6 @@
               llvm.lld
               llvm.llvm
               pkgs.cmake # Geode needs 3.29+
-              pkgs.ninja
               pkgs.ccache
               pkgs.git
             ];
