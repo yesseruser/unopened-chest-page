@@ -1,3 +1,2 @@
-# 1.0.0
-- First release of the mod!
-- Opening treasure room chest menu will automatically scroll to the first page with unopened chests
+# 1.0.3
+- Geode 6.0.0-beta.1 support (MacOS excluded for now)
